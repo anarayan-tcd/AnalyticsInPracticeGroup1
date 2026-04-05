@@ -4,5 +4,4 @@ This project simulates a real-world analytics consulting engagement. We act as a
 **Deadline: 16th April 2026 Format: PowerPoint Presentation + Github Repo**
 
 ## Team Members & Roles 
-| Role | Name |
-|Project Manager| | Nicole |
+NameRole NicoleProject Manager / StorytellerShivaProject Manager / StorytellerShuminLLM Prompt SpecialistSoumik GhoshalLLM Prompt SpecialistAdityaModeler / AnalystVanessaModeler / AnalystNga YinData EngineerXingming LiData EngineerShuaiya XiongVisualization ExpertTBCVisualization Expert
