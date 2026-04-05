@@ -12,13 +12,19 @@ This project simulates a real-world analytics consulting engagement. We act as a
 - Which customers are most at risk of churning, and what should the company do about it?
 
 ## Dataset
-- **Source**: Telco Customer Churn - Kaggle (available in the Repo)
-- **Description**: Contains data on 7,000+ telecom customers, including tenure, services used, monthly charges, and whether they churned.
-- **File Used**: WA_Fn-UseC_-Telco-Customer-Churn.csv 
+- **Source:** Telco Customer Churn - Kaggle (available in the Repo)
+- **Description:** Contains data on 7,000+ telecom customers, including tenure, services used, monthly charges, and whether they churned.
+- **File Used:** WA_Fn-UseC_-Telco-Customer-Churn.csv 
 
 ## Folder Structure (fill out when everything is uploaded)
 
+
+
+
 ## How To Run (data engineers have to fill this out)
+
+
+
 
 ## LLM Prompt Log (LLM specialists have to fill out)
 
@@ -43,4 +49,4 @@ This project uses generative AI tools in the following ways
 - C
 
 
-  -
+
