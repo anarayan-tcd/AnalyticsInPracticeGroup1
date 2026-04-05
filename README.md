@@ -23,6 +23,17 @@ This project simulates a real-world analytics consulting engagement. We act as a
 - Do customers who use streaming services (TV & movies) churn less?
 - Which customers are most at risk of churning, and what should the company do about it?
 
+## Timeline 
+| Date | What's Happening |
+|------|-----------------|
+| 7th - 8th April | Data Engineers clean and load the dataset. Full team reviews research questions. |
+| 9th - 10th April | Modelers run EDA and build models. LLM Specialists start designing prompts. Viz team plans charts. |
+| 11th - 12th April | Viz team builds all charts. LLM Specialists log and critique outputs. Project Managers draft slides 1, 7, 8, and 10. |
+| 13th April | Everyone sends their slides to the Project Managers. PM team assembles the full deck. |
+| 14th April | Full team reviews presentation. Fix issues. Check all references and AI acknowledgements. |
+| 15th April | Final push to GitHub. Presentation polished and ready. |
+| 16th April | Deadline |
+
 ## Dataset
 - **Source:** Telco Customer Churn - Kaggle (available in the Repo)
 - **Description:** Contains data on 7,000+ telecom customers, including tenure, services used, monthly charges, and whether they churned.
