@@ -17,12 +17,6 @@ This project simulates a real-world analytics consulting engagement. We act as a
 | Shuaiya | Visualization Expert |
 | Nadia | Visualization Expert |
 
-## Research Questions
-- Do customers without online security/antivirus churn more?
-- Does having cloud backup make customers more likely to stay?
-- Do customers who use streaming services (TV & movies) churn less?
-- Which customers are most at risk of churning, and what should the company do about it?
-
 ## Timeline 
 | Date | What's Happening |
 |------|-----------------|
@@ -33,6 +27,12 @@ This project simulates a real-world analytics consulting engagement. We act as a
 | 14th April | Full team reviews presentation. Fix issues. Check all references and AI acknowledgements. |
 | 15th April | Final push to GitHub. Presentation polished and ready. |
 | 16th April | Deadline |
+
+## Research Questions
+- Do customers without online security/antivirus churn more?
+- Does having cloud backup make customers more likely to stay?
+- Do customers who use streaming services (TV & movies) churn less?
+- Which customers are most at risk of churning, and what should the company do about it?
 
 ## Dataset
 - **Source:** Telco Customer Churn - Kaggle (available in the Repo)
