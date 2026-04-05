@@ -65,11 +65,10 @@ Include:
 ## References (add later)
 
 ## Gen AI Acknowledgement 
-This project uses generative AI tools in the following ways 
-- Prompt engineering experiment
-- A
-- B
-- C
-
+- This project used generative AI tools to support the research and development process.
+- AI was used to assist with code generation, data interpretation, and summarising findings. 
+- All AI-generated content was reviewed, verified, and edited by team members before inclusion.  
+Final analysis, conclusions, and recommendations reflect the team's own judgment.
+AI tools used: ChatGPT, Claude
 
 
