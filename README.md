@@ -3,5 +3,9 @@ This project simulates a real-world analytics consulting engagement. We act as a
 
 **Deadline: 16th April 2026 Format: PowerPoint Presentation + Github Repo**
 
-## Team Members & Roles 
-NameRole NicoleProject Manager / StorytellerShivaProject Manager / StorytellerShuminLLM Prompt SpecialistSoumik GhoshalLLM Prompt SpecialistAdityaModeler / AnalystVanessaModeler / AnalystNga YinData EngineerXingming LiData EngineerShuaiya XiongVisualization ExpertTBCVisualization Expert
+## Research Questions
+- Do customers without online security / antivirus churn more?
+- Does having cloud backup make customers more likely to stay?
+- Do customers who use streaming services (TV & movies) churn less?
+- Overall — which customers are most at risk of churning, and what should the company do about it?
+
