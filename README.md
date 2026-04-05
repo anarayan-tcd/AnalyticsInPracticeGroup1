@@ -4,6 +4,18 @@ This project simulates a real-world analytics consulting engagement. We act as a
 **Deadline: 16th April 2026 Format: PowerPoint Presentation + Github Repo**
 
 ## Team Members and Roles
+| Name | Role |
+|------|------|
+| Nicole | Project Manager / Storyteller |
+| Shiva | Project Manager / Storyteller |
+| Shumin | LLM Prompt Specialist |
+| Soumik | LLM Prompt Specialist |
+| Aditya | Modeler / Analyst |
+| Vanessa | Modeler / Analyst |
+| Nga Yin | Data Engineer |
+| Xingming | Data Engineer |
+| Shuaiya | Visualization Expert |
+| Nadia | Visualization Expert |
 
 ## Research Questions
 - Do customers without online security/antivirus churn more?
