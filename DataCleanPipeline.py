@@ -6,7 +6,6 @@ Purpose: Load, clean, and transform raw data, output one cleaned CSV
 import pandas as pd
 import numpy as np
 
-
 # Load Data & Check for Duplicates
 def load_and_check(filepath: str) -> pd.DataFrame:
     """Read raw CSV and check for duplicate rows or duplicate customer IDs."""
@@ -74,6 +73,26 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
         1, 0
     )
     print("Added new feature: has_streaming")
+    return df
+
+# Save Cleaned CSV
+def save_cleaned(df: pd.DataFrame, output_path: str):
+    """Save the cleaned dataframe to CSV """
+    df.to_csv(output_path, index=False)
+    print(f"Saved cleaned data → {output_path}")
+
+# Pipeline Runner
+def run_pipeline(input_path: str, output_path: str):
+    """Run the entire data cleaning workflow in one call."""
+    print("Starting Data Engineering Pipeline...\n")
+
+    df = load_and_check(input_path)
+    df = fix_dtypes(df)
+    df = standardize_categories(df)
+    df = add_features(df)
+    save_cleaned(df, output_path)
+
+    print(f"\n Pipeline complete! Final data: {df.shape[0]} rows × {df.shape[1]} columns")
     return df
 
 # read and run the pipeline
