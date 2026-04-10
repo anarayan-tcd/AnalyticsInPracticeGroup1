@@ -4,6 +4,7 @@ Purpose: Load, clean, and transform raw data, output one cleaned CSV
 """
 
 import pandas as pd
+import numpy as np
 
 
 # Load Data & Check for Duplicates
@@ -58,6 +59,21 @@ def standardize_categories(df: pd.DataFrame) -> pd.DataFrame:
     print(f"Converted {len(yes_no_cols)} Yes/No columns to 1/0")
     # Note: gender, InternetService, Contract, PaymentMethod are multi-value columns, kept as-is
     # Note: SeniorCitizen is already 0/1, no change needed
+    return df
+
+# Add New Feature
+def add_features(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Add has_streaming column:
+    If StreamingTV = 1 OR StreamingMovies = 1, then has_streaming = 1.
+    Used to answer Q3: "Do customers who use streaming services churn less?"
+    """
+    df = df.copy()
+    df['has_streaming'] = np.where(
+        (df['StreamingTV'] == 1) | (df['StreamingMovies'] == 1),
+        1, 0
+    )
+    print("Added new feature: has_streaming")
     return df
 
 # read and run the pipeline
