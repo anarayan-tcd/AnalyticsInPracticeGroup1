@@ -1,4 +1,4 @@
-# This is the Data Analysis Folder, by me, Aditya Narayan.  
+# This is the Data Analysis Folder.  
 ## What I've done is as follows: 
 * Used the cleaned churn csv file from the Data Engineering Section. We have swapped the column "Multiple Lines" back to the original with its 3 options
 * This file is then put through the following steps
@@ -19,4 +19,6 @@
   - I also had Claude create a set of 40 values, 20 of which are customers who will churn and 20 who won't BASED ON THE CLUSTERING RESULTS.
   - the results of this sample data is in the file: logistic_regression_sample_results.csv
 * these files can be used to visualize this data as needed. Vanessa's code also has outputs which can be visualized, if needed. You can ask her for that
+
+### Aditya Narayan
 
