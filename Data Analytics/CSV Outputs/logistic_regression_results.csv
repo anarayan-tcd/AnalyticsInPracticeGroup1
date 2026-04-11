@@ -1,0 +1,55 @@
+Best Hyperparameters:
+{'C': 1, 'penalty': 'l2', 'solver': 'liblinear'}
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.84      0.91      0.88      1036
+           1       0.68      0.51      0.59       373
+
+    accuracy                           0.81      1409
+   macro avg       0.76      0.71      0.73      1409
+weighted avg       0.80      0.81      0.80      1409
+
+
+Confusion Matrix:
+[[947  89]
+ [181 192]]
+
+Accuracy Score:
+0.808374733853797
+
+Coefficients of the Logistic Regression Model:
+Feature,Coefficient
+Seniorcitizen,0.19517872570890352
+Partner,0.034560002870796684
+Dependents,-0.09249596716425959
+Tenure,-0.0058287713414266785
+Phoneservice,-0.12234893316850355
+Onlinesecurity,-0.11992207511055203
+Onlinebackup,-0.02359050458553793
+Deviceprotection,0.1719209316941122
+Techsupport,-0.12511486343190362
+Streamingtv,0.1770977090950756
+Streamingmovies,0.13308344359561466
+Paperlessbilling,0.29989599471292017
+Monthlycharges,0.29856992094260254
+Totalcharges,-3.2892412448599906
+Has_Streaming,-0.20647858121526425
+Gender:Female,-0.016226188708712494
+Gender:Male,-0.06608824741277704
+MultLines:No,-0.27376541117744996
+MultLines:NoPhoneService,0.04003449704697966
+MultLines:Yes,0.1514164780089457
+IntService:Dsl,-0.01465564664996808
+IntService:FiberOptic,1.06036958105298
+IntService:No,-1.1280283705245493
+Contract:Month-To-Month,0.8144274381206266
+Contract:OneYear,0.06100657322599336
+Contract:TwoYear,-0.9577484474677584
+PayMethod:BankTransfer,-0.03801512273819259
+PayMethod:CreditCard,-0.14832335514705663
+PayMethod:ElectronicCheck,0.2624345103246985
+PayMethod:MailedCheck,-0.15841046856087512
+OnlineExtras,-0.09670651143402195
+StreamingExtras,0.3101811526907243

@@ -1,0 +1,22 @@
+Predictions for Sample Data:
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0]
+
+Classification Report for Sample Data:
+              precision    recall  f1-score   support
+
+           0       0.72      1.00      0.84        29
+           1       0.00      0.00      0.00        11
+
+    accuracy                           0.72        40
+   macro avg       0.36      0.50      0.42        40
+weighted avg       0.53      0.72      0.61        40
+
+
+Confusion Matrix for Sample Data:
+[[29  0]
+ [11  0]]
+
+Accuracy Score for Sample Data:
+0.725
+
