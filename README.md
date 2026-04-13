@@ -46,6 +46,25 @@ This project simulates a real-world analytics consulting engagement. We act as a
 
 ## How To Run (data engineers have to fill this out)
 
+1. Clone the repo:
+```bash
+git clone https://github.com/anarayan-tcd/AnalyticsInPracticeGroup1.git
+```
+
+2. Install required libraries:
+```bash
+pip install pandas scikit-learn xgboost matplotlib seaborn jupyter
+```
+
+3. Run the data cleaning pipeline:
+```bash
+python DataCleanPipeline.py
+```
+*Windows users: simply double-click `run_pipeline.bat`*
+
+4. Open the analysis notebooks in the `Data Analytics` and `EDA Modeling` folders using Jupyter Notebook.
+
+---
 
 
 
