@@ -39,11 +39,19 @@ This project simulates a real-world analytics consulting engagement. We act as a
 - **Description:** Contains data on 7,000+ telecom customers, including tenure, services used, monthly charges, and whether they churned.
 - **File Used:** WA_Fn-UseC_-Telco-Customer-Churn.csv 
 
-## Folder Structure (fill out when everything is uploaded)
-
-
-
-
+## Folder Structure 
+```
+AnalyticsInPracticeGroup1/
+│
+├── data/                          # Raw and cleaned datasets
+├── data_engineering/              # Cleaning pipeline and scripts (Nga Yin & Xingming)
+├── data_analytics/                # Clustering, correlation analysis, logistic regression (Aditya)
+│   └── images/                    # Heatmaps and cluster visualisation graphics
+├── eda_modeling/                  # EDA and predictive modelling notebooks (Vanessa)
+├── visualisations/                # Final charts for presentation (Shuaiya & Nadia)
+├── LICENSE
+└── README.md
+```
 ## How To Run 
 
 1. Clone the repo:
