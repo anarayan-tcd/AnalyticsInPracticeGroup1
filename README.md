@@ -44,7 +44,7 @@ This project simulates a real-world analytics consulting engagement. We act as a
 
 
 
-## How To Run (data engineers have to fill this out)
+## How To Run 
 
 1. Clone the repo:
 ```bash
@@ -76,10 +76,19 @@ Include:
  - The output received
  - Our assessment of whether the output was accurate and useful
 
-## Models used (completed by Modelers)
+## Models used
+Six machine learning models were trained and evaluated:
 
-- Models used
-- Validation approach
+| Model | Notes |
+|-------|-------|
+| Logistic Regression | Best for interpretability per research question |
+| Decision Tree | Baseline comparison |
+| Random Forest | Confirms feature importance |
+| Gradient Boosting | Best overall model (ROC AUC = 0.8470) |
+| XGBoost | Strong churn ranking, SHAP values |
+| K-Nearest Neighbours | Comparison model |
+
+**Validation approach:** 80/20 train-test split with stratification + 5-fold cross-validation via GridSearchCV for hyperparameter tuning.
 
 ## References (add later)
 
