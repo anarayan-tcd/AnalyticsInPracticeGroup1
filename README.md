@@ -15,7 +15,7 @@ This project simulates a real-world analytics consulting engagement. We act as a
 | Nga Yin | Hui | HUIN@TCD.IE | Data Engineer |
 | Xingming | Li | LIX35@TCD.IE | Data Engineer |
 | Shuaiya | Xiong | SHXIONG@TCD.IE | Visualization Expert |
-| Nadia | El-Fakih | ELFAKIRN@TCD.IE | Visualization Expert |
+| Nadia | El-Fakih | ELFAKIHN@TCD.IE | Visualization Expert |
 
 ## Timeline 
 | Date | What's Happening |
