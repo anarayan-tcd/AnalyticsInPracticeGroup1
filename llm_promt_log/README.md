@@ -50,4 +50,24 @@
 | **Output** | churn_sample_data.csv — 40 synthetic customer entries (20 churn, 20 no churn) |
 | **Assessment** | With some re-prompting and explaining, Claude created a decent sample set of 40 data entries based on clustering results |
 
+---
+
+### Additional AI Use (Nadia — Visualisations)
+
+All visualisation prompts were run in Google Colab using Gemini, 
+with final dashboard compilation done in Claude.
+
+| # | Prompt | Tool | Output |
+|---|--------|------|--------|
+| 1 | "Find 4 KPIs: overall churn rate, highest risk segment, fiber optic churn, e-check churn" | Gemini | KPI tiles for churn overview dashboard |
+| 2 | "Create bar charts for churn rate by contract type, internet service, payment method, and tenure band" | Gemini | 4 individual bar charts |
+| 3 | "Compile all of the above into an HTML dashboard" | Gemini | dashboard_1_churn_overview.html |
+| 4 | "Create a diverging bar chart showing feature correlation with churn, sorted by strength" | Gemini | Correlation chart |
+| 5 | "Create a feature correlation matrix using lower triangle only, grouped by category" | Gemini | correlation_heatmap.png |
+| 6 | "Create a metric heatmap and bubble chart for each of the 5 customer clusters" | Gemini | dashboard_3_clusters.html |
+| 7 | "Find 4 KPIs: accuracy, churn precision, churn recall, F1 score" | Gemini | KPI tiles for model performance dashboard |
+| 8 | "Create confusion matrix, grouped bar chart and feature coefficients chart" | Gemini | dashboard_4_model_performance.html |
+| 9 | "Compile all visualisations into 5 separate HTML dashboards" | Claude | 5 interactive HTML dashboards |
+| 10 | "Use tooltips/hover states instead of static labels" | Claude | Final polished dashboards |
+
 *All AI-generated content reviewed and verified by the team. GenAI use acknowledged per TCD guidelines.*
