@@ -69,7 +69,7 @@ python DataCleanPipeline.py
 ```
 *Windows users: simply double-click `run_pipeline.bat`*
 
-4. Open the analysis notebooks in the `Data Analytics` and `EDA Modeling` folders using Jupyter Notebook.
+4. Open the analysis notebooks in the `Data Analytics` and `EDA Modeling` folders using Jupyter Notebook or Python.
 
 ---
 
