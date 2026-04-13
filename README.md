@@ -4,18 +4,18 @@ This project simulates a real-world analytics consulting engagement. We act as a
 **Deadline: 16th April 2026 Format: PowerPoint Presentation + Github Repo**
 
 ## Team Members and Roles
-| Name | Role | 
-|------|------|
-| Nicole | Project Manager / Storyteller |
-| Shiva | Project Manager / Storyteller |
-| Shumin | LLM Prompt Specialist |
-| Soumik | LLM Prompt Specialist |
-| Aditya | Modeler / Analyst |
-| Vanessa | Modeler / Analyst |
-| Nga Yin | Data Engineer |
-| Xingming | Data Engineer |
-| Shuaiya | Visualization Expert |
-| Nadia | Visualization Expert |
+| Name | Surname | Email | Role |
+|------|---------|-------|------|
+| Nicole | Kuzmetova | KUZMETON@TCD.IE | Project Manager / Storyteller |
+| Shiva | Ulaganathan Chidambaram | ULAGANAS@TCD.IE | Project Manager / Storyteller |
+| Shu Min | Lim | LIMS6@TCD.IE | LLM Prompt Specialist |
+| Soumik | Ghoshal | GHOSHALS@TCD.IE | LLM Prompt Specialist |
+| Aditya | Narayan | ANARAYAN@TCD.IE | Modeler / Analyst |
+| Vanessa | Martinez Marin | MARTIJ21@TCD.IE | Modeler / Analyst |
+| Nga Yin | Hui | HUIN@TCD.IE | Data Engineer |
+| Xingming | Li | LIX35@TCD.IE | Data Engineer |
+| Shuaiya | Xiong | SHXIONG@TCD.IE | Visualization Expert |
+| Nadia | El-Fakih | ELFAKIRN@TCD.IE | Visualization Expert |
 
 ## Timeline 
 | Date | What's Happening |
