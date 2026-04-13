@@ -44,10 +44,10 @@ This project simulates a real-world analytics consulting engagement. We act as a
 AnalyticsInPracticeGroup1/
 │
 ├── data/                          # Raw and cleaned datasets
-├── data_engineering/              # Cleaning pipeline and scripts (Nga Yin & Xingming)
-├── data_analytics/                # Clustering, correlation analysis, logistic regression (Aditya)
-├── eda_modeling/                  # EDA and predictive modelling notebooks (Vanessa)
-├── visualisations/                # Final charts for presentation (Shuaiya & Nadia)
+├── data_engineering/              # Cleaning pipeline and scripts 
+├── data_analytics/                # Clustering, correlation analysis, logistic regression
+├── eda_modeling/                  # EDA and predictive modelling notebooks 
+├── visualisations/                # Final charts for presentation 
 ├── LICENSE
 └── README.md
 ```
