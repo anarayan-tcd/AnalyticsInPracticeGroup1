@@ -1,0 +1,89 @@
+## 1. Project Overview
+This section focuses on understanding, predicting, and reducing customer churn in a telecommunications company. Using Exploratory Data Analysis (EDA) and multiple machine learning models, it identifies key churn drivers and evaluates the performance of several predictive algorithms.
+
+---
+
+## 2. Objectives
+1. Understand the main factors influencing customer churn
+2. Build predictive models to classify customers at risk of leaving
+3. Compare model performance using standard evaluation metrics
+4. Provide business recommendations based on analytical findings
+
+---
+
+## 3. Methodology
+
+### 3.1 Exploratory Data Analysis (EDA)
+- Checked for missing values (none found)
+- Explored distributions of numerical and categorical features
+- Conducted bivariate analysis with the target variable Churn
+- Key patterns identified:
+  - Month-to-month contracts have the highest churn
+  - Fiber optic users churn more than DSL users
+  - Short-tenure customers are the most vulnerable
+
+### 3.2 Data Preprocessing
+- Dropped non-predictive column: `customerID`
+- Split data into features (X) and target (y)
+- Applied `StandardScaler` to numerical features and `OneHotEncoder` to categorical features
+- Performed an 80/20 train-test split with stratification
+
+### 3.3 Models Trained
+| Model | Notes |
+|-------|-------|
+| Logistic Regression | Best for interpretability |
+| Decision Tree | Baseline comparison |
+| Random Forest | Feature importance scores |
+| Gradient Boosting | Best overall model |
+| XGBoost | SHAP value analysis |
+| K-Nearest Neighbours | Comparison model |
+
+**Metrics used:** Accuracy, Precision, Recall, F1-Score, ROC AUC
+
+**Top performers:** Gradient Boosting, Logistic Regression
+
+### 3.4 Hyperparameter Tuning
+Performed using GridSearchCV on Logistic Regression and Gradient Boosting.
+
+**Best model after tuning:** Gradient Boosting (ROC AUC = 0.8470)
+
+### 3.5 Validation Methods
+- **Train-Test Split:** 80/20 with stratification to maintain churn proportions
+- **Cross-Validation:** 5-fold cross-validation via GridSearchCV during hyperparameter tuning
+
+---
+
+## 4. Best Model Per Research Question
+
+### 4.1 Online Security & Antivirus
+- **Best model:** Logistic Regression (tuned) — interpretable coefficients show direct effect of security features on churn
+- **Supporting model:** Random Forest — confirms OnlineSecurity in top 10 most important features
+
+### 4.2 Cloud Backup
+- **Best model:** Logistic Regression (tuned) — coefficient for OnlineBackup shows directional impact on churn
+- **Supporting model:** XGBoost — SHAP values show customer-level impact of cloud backup
+
+### 4.3 Streaming Services (TV & Movies)
+- **Best model:** Logistic Regression (tuned) — StreamingTV and StreamingMovies show strong positive coefficients
+- **Supporting model:** Gradient Boosting — ROC AUC 0.8460, confirms pattern through feature importance
+
+### 4.4 Overall Churn Risk
+- **Best model:** Gradient Boosting (tuned) — Accuracy 0.8034, Precision 0.6714, ROC AUC 0.8460
+- **Supporting model:** XGBoost — SHAP values give customer-level explanations
+
+---
+
+## 5. Key Findings
+
+**Online Security & Cloud Backup**
+Customers without these services show significantly higher churn — these features should be promoted or bundled.
+
+**Streaming Services**
+Unexpectedly, customers with Streaming TV/Movies show slightly higher churn, indicating streaming alone does not guarantee loyalty.
+
+**Main Churn Drivers (Gradient Boosting)**
+- Contract Type: Month-to-month customers are the highest-risk group
+- Tenure: New customers churn the most
+- Internet Service: Fiber optic users churn more than DSL users
+- Payment Method: Electronic check users show higher churn
+- Charges: Higher monthly and total charges increase churn risk
