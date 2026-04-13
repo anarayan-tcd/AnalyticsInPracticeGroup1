@@ -73,15 +73,20 @@ python DataCleanPipeline.py
 
 ---
 
-
-
 ## LLM Prompt Log (LLM specialists have to fill out)
 
-Include:
- - The prompt used
- - The AI tools used
- - The output received
- - Our assessment of whether the output was accurate and useful
+The team used Gemini 1.5 Pro to audit and critique the technical work at three key stages
+of the project. All outputs were reviewed and verified by the team before inclusion.
+
+| # | Prompt | Input | Key Output |
+|---|--------|-------|------------|
+| 1 | Data Pipeline Critique | DataCleanPipeline.py | Confirmed pipeline is safe and well-modularised. Flagged missing feature scaling and outlier detection. |
+| 2 | Model Reliability Assessment | logistic_regression_results.csv | Identified that 49% of churners are missed (recall 0.51) — a significant business risk. |
+| 3 | Insight Synthesis for Recommendations | Model coefficients | Translated top 3 churn drivers into CEO-ready strategies with business caveats. |
+
+**Additional AI use: Claude was used to generate a cluster visualisation and 40 synthetic test customer profiles based on the clustering results.
+
+Full prompt details, inputs, outputs and assessments are documented in each team member's folder README.
 
 ## Models used
 Six machine learning models were trained and evaluated:
