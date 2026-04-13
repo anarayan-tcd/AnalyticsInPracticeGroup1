@@ -42,5 +42,9 @@
 | **AI Tool** | Claude |
 | **Output** | Cluster visualisation graphic of 5 churner profiles |
 | **Assessment** | Accurate and useful — graphic clearly displayed cluster groupings for analysis |
+| **Prompt** | "Put 20 rows of customer data where churn = yes into a csv file. Also add another 20 rows where the customer would NOT churn. Based on the code sent above, all columns that aren't charges related should be 0 or 1" |
+| **AI Tool** | Claude |
+| **Output** | churn_sample_data.csv — 40 synthetic customer entries (20 churn, 20 no churn) |
+| **Assessment** | With some re-prompting and explaining, Claude created a decent sample set of 40 data entries based on clustering results |
 
 *All AI-generated content reviewed and verified by the team. GenAI use acknowledged per TCD guidelines.*
