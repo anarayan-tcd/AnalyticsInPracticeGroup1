@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cluster Profiles — Churned Customers</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  body { font-family: sans-serif; background: #fff; color: #1a1a1a; padding: 24px; max-width: 960px; margin: 0 auto; }
+  h2 { font-size: 18px; font-weight: 500; margin: 0 0 16px; }
+  h3 { font-size: 14px; font-weight: 500; color: #555; margin: 0 0 10px; }
+  .badge-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 24px; }
+  .badge { border-radius: 10px; padding: 12px; }
+  .section { margin-bottom: 32px; }
+  .legend { display: flex; gap: 16px; margin-top: 10px; font-size: 12px; color: #666; flex-wrap: wrap; }
+  .swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .ht { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .ht th { font-weight: 500; font-size: 11px; color: #666; padding: 8px 12px; text-align: left; border-bottom: 0.5px solid rgba(0,0,0,0.1); }
+  .ht th.metric { text-align: right; }
+  .ht td { padding: 10px 12px; border-bottom: 0.5px solid rgba(0,0,0,0.06); }
+  .ht td.val { text-align: right; border-radius: 4px; font-weight: 500; font-size: 13px; }
+  .heat-legend { display: flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 11px; color: #999; }
+</style>
+</head>
+<body>
+
+<h2>Cluster profiles — churned customers (k=5)</h2>
+
+<div class="badge-row">
+  <div class="badge" style="background:#FAECE7;">
+    <div style="font-size:11px;color:#993C1D;margin-bottom:4px;">Cluster 0</div>
+    <div style="font-size:14px;font-weight:500;color:#712B13;">Loyal long-term</div>
+    <div style="font-size:11px;color:#D85A30;margin-top:2px;">High tenure, high spend</div>
+  </div>
+  <div class="badge" style="background:#E1F5EE;">
+    <div style="font-size:11px;color:#0F6E56;margin-bottom:4px;">Cluster 1</div>
+    <div style="font-size:14px;font-weight:500;color:#085041;">Early disengaged</div>
+    <div style="font-size:11px;color:#1D9E75;margin-top:2px;">Short tenure, low spend</div>
+  </div>
+  <div class="badge" style="background:#EEEDFE;">
+    <div style="font-size:11px;color:#534AB7;margin-bottom:4px;">Cluster 2</div>
+    <div style="font-size:14px;font-weight:500;color:#3C3489;">Premium feature users</div>
+    <div style="font-size:11px;color:#7F77DD;margin-top:2px;">Services-heavy, older</div>
+  </div>
+  <div class="badge" style="background:#FAEEDA;">
+    <div style="font-size:11px;color:#854F0B;margin-bottom:4px;">Cluster 3</div>
+    <div style="font-size:14px;font-weight:500;color:#633806;">Price-sensitive leavers</div>
+    <div style="font-size:11px;color:#BA7517;margin-top:2px;">Minimal services, low spend</div>
+  </div>
+  <div class="badge" style="background:#F1EFE8;">
+    <div style="font-size:11px;color:#5F5E5A;margin-bottom:4px;">Cluster 4</div>
+    <div style="font-size:14px;font-weight:500;color:#444441;">Power users (short tenure)</div>
+    <div style="font-size:11px;color:#888780;margin-top:2px;">Full services, left early</div>
+  </div>
+</div>
+
+<!-- Option B: Heatmap table -->
+<div class="section">
+  <h3>Metric heatmap — all clusters</h3>
+  <table class="ht">
+    <thead>
+      <tr>
+        <th style="min-width:180px;">Cluster</th>
+        <th class="metric">Tenure</th>
+        <th class="metric">Monthly charges</th>
+        <th class="metric">Online extras</th>
+        <th class="metric">Streaming extras</th>
+      </tr>
+    </thead>
+    <tbody id="htbody"></tbody>
+  </table>
+  <div class="heat-legend">
+    <span>Low</span>
+    <div style="display:flex;gap:2px;">
+      <div style="width:18px;height:10px;border-radius:2px;background:#F1EFE8;"></div>
+      <div style="width:18px;height:10px;border-radius:2px;background:rgba(239,159,39,0.3);"></div>
+      <div style="width:18px;height:10px;border-radius:2px;background:rgba(239,159,39,0.6);"></div>
+      <div style="width:18px;height:10px;border-radius:2px;background:rgba(216,90,48,0.6);"></div>
+      <div style="width:18px;height:10px;border-radius:2px;background:#D85A30;"></div>
+    </div>
+    <span>High</span>
+  </div>
+</div>
+
+<!-- Option C: Bubble chart -->
+<div class="section">
+  <h3>Segment map — tenure vs monthly charges (bubble size = online extras)</h3>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:10px;font-size:12px;color:#666;">
+    <span style="display:flex;align-items:center;gap:4px;"><span class="swatch" style="border-radius:50%;background:#D85A30;"></span>C0 · Loyal long-term</span>
+    <span style="display:flex;align-items:center;gap:4px;"><span class="swatch" style="border-radius:50%;background:#1D9E75;"></span>C1 · Early disengaged</span>
+    <span style="display:flex;align-items:center;gap:4px;"><span class="swatch" style="border-radius:50%;background:#7F77DD;"></span>C2 · Premium users</span>
+    <span style="display:flex;align-items:center;gap:4px;"><span class="swatch" style="border-radius:50%;background:#BA7517;"></span>C3 · Price-sensitive</span>
+    <span style="display:flex;align-items:center;gap:4px;"><span class="swatch" style="border-radius:50%;background:#888780;"></span>C4 · Power users</span>
+  </div>
+  <div style="position:relative;width:100%;height:340px;">
+    <canvas id="bubble" role="img" aria-label="Bubble chart: Cluster 0 top-right high tenure high charges, Cluster 3 bottom-left low tenure low charges">Cluster spatial bubble chart.</canvas>
+  </div>
+</div>
+
+<!-- Comparison bar chart -->
+<div class="section">
+  <h3>Tenure vs monthly charges — cluster comparison</h3>
+  <div style="position:relative;width:100%;height:200px;">
+    <canvas id="compare" role="img" aria-label="Grouped bar chart of tenure and monthly charges per cluster">Cluster tenure vs charges comparison.</canvas>
+  </div>
+  <div class="legend">
+    <span style="display:flex;align-items:center;gap:4px;"><span class="swatch" style="background:#D85A30;"></span>Tenure (normalised)</span>
+    <span style="display:flex;align-items:center;gap:4px;"><span class="swatch" style="background:#B5D4F4;"></span>Monthly charges (normalised)</span>
+  </div>
+</div>
+
+<script>
+const clusters = [
+  { id: 0, name: 'Loyal long-term',        sub: 'High tenure, high spend',     tenure: 79.6, charges: 84.0, online: 2.67, streaming: 1.40, color: '#D85A30', bg: 'rgba(216,90,48,0.18)' },
+  { id: 1, name: 'Early disengaged',        sub: 'Short tenure, low spend',     tenure: 38.7, charges: 69.6, online: 0.63, streaming: 1.06, color: '#1D9E75', bg: 'rgba(29,158,117,0.18)' },
+  { id: 2, name: 'Premium feature users',   sub: 'Services-heavy, older',       tenure: 62.7, charges: 86.8, online: 1.06, streaming: 1.74, color: '#7F77DD', bg: 'rgba(127,119,221,0.18)' },
+  { id: 3, name: 'Price-sensitive leavers', sub: 'Minimal services, low spend', tenure: 19.9, charges: 48.9, online: 0.46, streaming: 0.07, color: '#BA7517', bg: 'rgba(186,117,23,0.18)' },
+  { id: 4, name: 'Power users (short)',     sub: 'Full services, left early',   tenure: 43.4, charges: 74.3, online: 0.35, streaming: 0.30, color: '#888780', bg: 'rgba(136,135,128,0.18)' },
+];
+
+const ranges = {
+  tenure:    { min: 19.9, max: 79.6 },
+  charges:   { min: 48.9, max: 86.8 },
+  online:    { min: 0.35, max: 2.67 },
+  streaming: { min: 0.07, max: 1.74 },
+};
+
+function heatColor(val, min, max) {
+  const t = (val - min) / (max - min);
+  if (t < 0.25) return { bg: '#F1EFE8', fg: '#5F5E5A' };
+  if (t < 0.5)  return { bg: 'rgba(239,159,39,0.28)', fg: '#633806' };
+  if (t < 0.75) return { bg: 'rgba(239,159,39,0.58)', fg: '#412402' };
+  return { bg: 'rgba(216,90,48,0.78)', fg: '#fff' };
+}
+
+const tbody = document.getElementById('htbody');
+clusters.forEach(r => {
+  const tc = heatColor(r.tenure,    ranges.tenure.min,    ranges.tenure.max);
+  const cc = heatColor(r.charges,   ranges.charges.min,   ranges.charges.max);
+  const oc = heatColor(r.online,    ranges.online.min,    ranges.online.max);
+  const sc = heatColor(r.streaming, ranges.streaming.min, ranges.streaming.max);
+  tbody.insertAdjacentHTML('beforeend', `
+    <tr>
+      <td>
+        <div style="font-size:11px;color:#999;margin-bottom:1px;">Cluster ${r.id}</div>
+        <div style="font-weight:500;font-size:13px;color:#1a1a1a;">${r.name}</div>
+        <div style="font-size:11px;color:#aaa;">${r.sub}</div>
+      </td>
+      <td class="val" style="background:${tc.bg};color:${tc.fg};">${r.tenure}%</td>
+      <td class="val" style="background:${cc.bg};color:${cc.fg};">${r.charges}%</td>
+      <td class="val" style="background:${oc.bg};color:${oc.fg};">${r.online.toFixed(2)} avg</td>
+      <td class="val" style="background:${sc.bg};color:${sc.fg};">${r.streaming.toFixed(2)} avg</td>
+    </tr>
+  `);
+});
+
+new Chart(document.getElementById('bubble'), {
+  type: 'bubble',
+  data: {
+    datasets: clusters.map(c => ({
+      label: 'C' + c.id + ' · ' + c.name,
+      data: [{ x: c.tenure, y: c.charges, r: Math.max(c.online * 14, 8) }],
+      backgroundColor: c.bg,
+      borderColor: c.color,
+      borderWidth: 2,
+    }))
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    layout: { padding: 30 },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => {
+            const c = clusters[ctx.datasetIndex];
+            return [`C${c.id} · ${c.name}`, `Tenure: ${c.tenure}%`, `Charges: ${c.charges}%`, `Online extras: ${c.online.toFixed(2)} avg`];
+          }
+        }
+      }
+    },
+    scales: {
+      x: { min: 0, max: 100, grid: { color: 'rgba(128,128,128,0.12)' }, ticks: { color: '#888780', font: { size: 11 }, callback: v => v + '%' }, title: { display: true, text: 'Tenure (normalised)', color: '#888780', font: { size: 11 } } },
+      y: { min: 30, max: 100, grid: { color: 'rgba(128,128,128,0.12)' }, ticks: { color: '#888780', font: { size: 11 }, callback: v => v + '%' }, title: { display: true, text: 'Monthly charges (normalised)', color: '#888780', font: { size: 11 } } }
+    }
+  },
+  plugins: [{
+    afterDatasetsDraw(chart) {
+      const ctx = chart.ctx;
+      chart.data.datasets.forEach((ds, i) => {
+        const meta = chart.getDatasetMeta(i);
+        if (!meta.hidden && meta.data[0]) {
+          const pt = meta.data[0];
+          ctx.save();
+          ctx.font = '500 11px sans-serif';
+          ctx.fillStyle = clusters[i].color;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('C' + i, pt.x, pt.y);
+          ctx.restore();
+        }
+      });
+    }
+  }]
+});
+
+new Chart(document.getElementById('compare'), {
+  type: 'bar',
+  data: {
+    labels: ['Cluster 0', 'Cluster 1', 'Cluster 2', 'Cluster 3', 'Cluster 4'],
+    datasets: [
+      { label: 'Tenure',          data: clusters.map(c => c.tenure),  backgroundColor: '#D85A30', borderWidth: 0, borderRadius: 3 },
+      { label: 'Monthly charges', data: clusters.map(c => c.charges), backgroundColor: '#B5D4F4', borderWidth: 0, borderRadius: 3 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: c => ' ' + c.dataset.label + ': ' + c.formattedValue + '%' } }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { color: '#888780', font: { size: 11 } } },
+      y: { grid: { color: 'rgba(128,128,128,0.15)' }, ticks: { color: '#888780', font: { size: 11 }, callback: v => v + '%' }, max: 100 }
+    }
+  }
+});
+</script>
+</body>
+</html>

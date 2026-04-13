@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Churn Overview Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  body { font-family: sans-serif; background: #fff; color: #1a1a1a; padding: 24px; max-width: 900px; margin: 0 auto; }
+  h2 { font-size: 18px; font-weight: 500; margin: 0 0 16px; }
+  .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+  .metric-card { background: #f5f5f2; border-radius: 8px; padding: 1rem; }
+  .metric-label { font-size: 13px; color: #666; margin-bottom: 4px; }
+  .metric-value { font-size: 26px; font-weight: 500; }
+  .metric-sub { font-size: 12px; color: #999; margin-top: 2px; }
+  .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .chart-title { font-size: 13px; font-weight: 500; color: #555; margin-bottom: 10px; }
+  .chart-wrap { position: relative; width: 100%; }
+</style>
+</head>
+<body>
+<h2>Churn overview dashboard</h2>
+
+<div class="metric-grid">
+  <div class="metric-card">
+    <div class="metric-label">Overall churn rate</div>
+    <div class="metric-value">26.5%</div>
+    <div class="metric-sub">1,869 of 7,043 customers</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-label">Highest risk segment</div>
+    <div class="metric-value">42.7%</div>
+    <div class="metric-sub">Month-to-month contracts</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-label">Fiber optic churn</div>
+    <div class="metric-value">41.9%</div>
+    <div class="metric-sub">vs 7.4% for no internet</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-label">E-check churn</div>
+    <div class="metric-value">45.3%</div>
+    <div class="metric-sub">Highest payment method</div>
+  </div>
+</div>
+
+<div class="chart-grid">
+  <div>
+    <div class="chart-title">Churn rate by contract type</div>
+    <div class="chart-wrap" style="height:140px;">
+      <canvas id="c1" role="img" aria-label="Churn rate by contract type bar chart"></canvas>
+    </div>
+  </div>
+  <div>
+    <div class="chart-title">Churn rate by internet service</div>
+    <div class="chart-wrap" style="height:140px;">
+      <canvas id="c2" role="img" aria-label="Churn rate by internet service bar chart"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="chart-grid">
+  <div>
+    <div class="chart-title">Churn rate by payment method</div>
+    <div class="chart-wrap" style="height:180px;">
+      <canvas id="c3" role="img" aria-label="Churn rate by payment method horizontal bar chart"></canvas>
+    </div>
+  </div>
+  <div>
+    <div class="chart-title">Churn rate by tenure band</div>
+    <div class="chart-wrap" style="height:180px;">
+      <canvas id="c4" role="img" aria-label="Churn rate by tenure band bar chart"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+const coral = '#D85A30';
+const gray = '#888780';
+const grayL = '#D3D1C7';
+
+const baseScales = (max) => ({
+  x: { grid: { display: false }, ticks: { color: '#888780', font: { size: 11 } } },
+  y: { grid: { color: 'rgba(128,128,128,0.15)' }, ticks: { color: '#888780', font: { size: 11 }, callback: v => v + '%' }, max }
+});
+
+new Chart(document.getElementById('c1'), {
+  type: 'bar',
+  data: {
+    labels: ['Month-to-month', 'One year', 'Two year'],
+    datasets: [{ data: [42.7, 11.3, 2.8], backgroundColor: [coral, gray, grayL], borderWidth: 0, borderRadius: 4 }]
+  },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: baseScales(55) }
+});
+
+new Chart(document.getElementById('c2'), {
+  type: 'bar',
+  data: {
+    labels: ['Fiber optic', 'DSL', 'No internet'],
+    datasets: [{ data: [41.9, 19.0, 7.4], backgroundColor: [coral, gray, grayL], borderWidth: 0, borderRadius: 4 }]
+  },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: baseScales(55) }
+});
+
+new Chart(document.getElementById('c3'), {
+  type: 'bar',
+  data: {
+    labels: ['Electronic check', 'Mailed check', 'Bank transfer', 'Credit card'],
+    datasets: [{ data: [45.3, 19.1, 16.7, 15.2], backgroundColor: [coral, gray, gray, gray], borderWidth: 0, borderRadius: 4, indexAxis: 'y' }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: 'rgba(128,128,128,0.15)' }, ticks: { color: '#888780', font: { size: 11 }, callback: v => v + '%' }, max: 55 },
+      y: { grid: { display: false }, ticks: { color: '#888780', font: { size: 11 } } }
+    }
+  }
+});
+
+new Chart(document.getElementById('c4'), {
+  type: 'bar',
+  data: {
+    labels: ['0–12 mo', '13–24 mo', '25–48 mo', '49–72 mo'],
+    datasets: [{ data: [47.4, 28.7, 20.4, 9.5], backgroundColor: [coral, coral, gray, grayL], borderWidth: 0, borderRadius: 4 }]
+  },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: baseScales(55) }
+});
+</script>
+</body>
+</html>

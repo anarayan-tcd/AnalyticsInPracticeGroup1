@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feature Correlation with Churn</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  body { font-family: sans-serif; background: #fff; color: #1a1a1a; padding: 24px; max-width: 900px; margin: 0 auto; }
+  h2 { font-size: 18px; font-weight: 500; margin: 0 0 8px; }
+  .legend { display: flex; gap: 16px; margin-bottom: 12px; font-size: 12px; color: #666; flex-wrap: wrap; }
+  .legend span { display: flex; align-items: center; gap: 4px; }
+  .swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+</style>
+</head>
+<body>
+<h2>Feature correlation with churn — sorted by strength</h2>
+
+<div class="legend">
+  <span><span class="swatch" style="background:#D85A30;"></span>Positive (increases churn risk)</span>
+  <span><span class="swatch" style="background:#1D9E75;"></span>Negative (reduces churn risk)</span>
+</div>
+
+<div style="position:relative; width:100%; height:440px;">
+  <canvas id="corrChart" role="img" aria-label="Horizontal bar chart of feature correlations with churn"></canvas>
+</div>
+
+<script>
+const features = [
+  'Contract: month-to-month', 'Internet: fiber optic', 'Pay: electronic check',
+  'Monthly charges', 'Paperless billing', 'Senior citizen', 'Streaming extras',
+  'Dependents', 'Online security', 'Online extras', 'Tech support',
+  'Contract: one year', 'Internet: no service', 'Contract: two year',
+  'Tenure', 'Total charges'
+];
+const vals = [
+  0.4051, 0.3080, 0.3019, 0.2103, 0.1918, 0.1509, 0.1280,
+  -0.1642, -0.1712, -0.1731, -0.1647, -0.1778, -0.2279, -0.3023, -0.3522, -0.2388
+];
+
+new Chart(document.getElementById('corrChart'), {
+  type: 'bar',
+  data: {
+    labels: features,
+    datasets: [{
+      data: vals,
+      backgroundColor: vals.map(v => v > 0 ? '#D85A30' : '#1D9E75'),
+      borderWidth: 0,
+      borderRadius: 3,
+      indexAxis: 'y'
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y',
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: c => ' r = ' + c.formattedValue } }
+    },
+    scales: {
+      x: {
+        grid: { color: 'rgba(128,128,128,0.15)' },
+        ticks: { color: '#888780', font: { size: 11 } },
+        min: -0.45,
+        max: 0.45
+      },
+      y: {
+        grid: { display: false },
+        ticks: { color: '#888780', font: { size: 11 } }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
