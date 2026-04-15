@@ -102,8 +102,6 @@ Six machine learning models were trained and evaluated:
 
 **Validation approach:** 80/20 train-test split with stratification + 5-fold cross-validation via GridSearchCV for hyperparameter tuning.
 
-## References (add later)
-
 ## Gen AI Acknowledgement 
 - This project used generative AI tools to support the research and development process.
 - AI was used to assist with code generation, data interpretation, and summarising findings. 
